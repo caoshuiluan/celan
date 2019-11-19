@@ -1,44 +1,27 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header class="header">
-        <navHeader></navHeader>
-      </el-header>
-      <el-container>
-        <el-aside width="200px">
-          <navMenu></navMenu>
-        </el-aside>
-        <el-main>
-          <navMain></navMain>
-          <keep-alive>
-            <router-view/>
-          </keep-alive>
-        </el-main>
-      </el-container>
-    </el-container>
-
+    <router-view />
   </div>
 </template>
 
-<script>
-
-import navMenu from '@/components/navMenu/navMenu'
-import navHeader from '@/components/header/header'
-import navMain from '@/components/navMain/navMain'
-
-export default {
-  name: 'App',
-  components: {
-    navMenu,
-    navHeader,
-    navMain
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import { State, Getter, Mutation, Action } from "vuex-class";
+@Component({
+  components: {}
+})
+export default class App extends Vue {
+  // 存储用户信息
+  @Action("setUser") setUser: any;
+  created() {
+    this.setUser(localStorage.tsToken);
   }
 }
 </script>
 
-<style>
-  .header{
-    background: #409EFF;
-    line-height: 60px;
-  }
+<style lang="scss">
+#app {
+  width: 100%;
+  height: 100%;
+}
 </style>
