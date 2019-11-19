@@ -5,6 +5,7 @@ import BasicLayout from '@/components/navMain/mainComponents/BasicLayout'
 import BasicContainer from '@/components/navMain/mainComponents/BasicContainer'
 import BasicCheckbox from '@/components/navMain/mainComponents/BasicCheckbox'
 import BasicRadio from '@/components/navMain/mainComponents/BasicRadio'
+import celande from '@/components/celande'
 
 Vue.use(Router)
 
@@ -34,6 +35,10 @@ export default new Router({
       path: '/BasicRadio',
       name: 'BasicRadio',
       component: BasicRadio
+    }, {
+      path: '/celande',
+      name: 'celande',
+      component: celande
     }
   ]
 })
